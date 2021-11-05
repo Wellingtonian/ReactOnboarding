@@ -117,7 +117,7 @@ class SaleHome extends Component {
     if (count === 0)
       return (
         <div>
-          <h1>sale</h1>
+          <h1>Sale</h1>
 
           <CreateSale
             onCreate={this.handleCreate}
@@ -129,6 +129,7 @@ class SaleHome extends Component {
           <p>Creat your first Sale!</p>
         </div>
       );
+
     const { saleList } = this.getPageData();
 
     return (
