@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Icon } from "semantic-ui-react";
 import DropDownGen from "../common/dropDownGen";
+import DropDownSale from "./dropDownSale";
 
 function CreateSale(props) {
   const { onCreate, customer, product, store } = props;
@@ -32,7 +33,7 @@ function CreateSale(props) {
 
           <Form.Field>
             <label> Customer</label>
-            <DropDownGen
+            <DropDownSale
               label="Customer"
               data={customer}
               onSelect={setCustomerID}
@@ -40,7 +41,7 @@ function CreateSale(props) {
           </Form.Field>
           <Form.Field>
             <label> Product</label>
-            <DropDownGen
+            <DropDownSale
               label="Product"
               data={product}
               onSelect={setProductID}
@@ -48,7 +49,7 @@ function CreateSale(props) {
           </Form.Field>
           <Form.Field>
             <label> Store</label>
-            <DropDownGen label="Store" data={store} onSelect={setStoreID} />
+            <DropDownSale label="Store" data={store} onSelect={setStoreID} />
           </Form.Field>
         </Form>
       </Modal.Content>
@@ -68,12 +69,16 @@ function CreateSale(props) {
           onClick={() =>
             onCreate(
               {
-                datesold: saleDate,
+                dateSold: saleDate,
                 productID: productID,
                 customerID: customerID,
                 storeID: storeID,
               },
-              setOpen(false)
+              setOpen(false),
+              console.log(saleDate),
+              console.log(productID),
+              console.log(customerID),
+              console.log(storeID)
             )
           }
           positive

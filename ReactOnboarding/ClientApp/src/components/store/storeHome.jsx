@@ -36,7 +36,7 @@ class StoreHome extends Component {
 
     const storeList = [data, ...this.state.storeList];
     this.setState({ storeList });
-  };
+   
 
   handleEdit = async (store) => {
     await axios.put(`/stores/putStore/${store.id}`, store);
@@ -51,6 +51,7 @@ class StoreHome extends Component {
     await axios.delete(`/stores/deleteStore/${store.id}`);
     const storeList = this.state.storeList.filter((p) => p.id !== store.id);
     this.setState({ storeList });
+   
   };
 
   handlePageChange = (page) => {

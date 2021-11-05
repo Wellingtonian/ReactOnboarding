@@ -64,6 +64,7 @@ class SaleHome extends Component {
     const { data } = await axios.post("/sales/postsale", sale);
     const saleList = [data, ...this.state.saleList];
     this.setState({ saleList });
+    this.fetchSaleList();
   };
 
   handleEdit = async (sale) => {
@@ -79,6 +80,7 @@ class SaleHome extends Component {
     await axios.delete(`/sales/deletesale/${sale.id}`);
     const saleList = this.state.saleList.filter((p) => p.id !== sale.id);
     this.setState({ saleList });
+    this.fetchSaleList();
   };
 
   handlePageChange = (page) => {
