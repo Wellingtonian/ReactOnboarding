@@ -1,85 +1,62 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react";
+import { NavLink, withRouter } from "react-router-dom";
+import { Input, Menu } from "semantic-ui-react";
 import ReactIcon from "./reactIcon";
 
-class NavBar extends React.Component {
+export default class NavBar extends Component {
+  state = { activeItem: "home" };
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
   render() {
+    const { activeItem } = this.state;
+
     return (
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              <ReactIcon />
-              React
-            </a>
-            <div
-              className="collapse navbar-collapse d-flex justify-content-between"
-              id="navbarSupportedContent"
-            >
-              <div>
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <NavLink className="nav-link" aria-current="page" to="/">
-                      Home
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      aria-current="page"
-                      to="/customers"
-                    >
-                      Customer
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      aria-current="page"
-                      to="/products"
-                    >
-                      Product
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      aria-current="page"
-                      to="/stores"
-                    >
-                      Store
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      aria-current="page"
-                      to="/sales"
-                    >
-                      Sale
-                    </NavLink>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <form className="d-flex">
-                  <input
-                    className="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button className="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
+      <Menu secondary>
+        <Menu.Item>
+          <ReactIcon />
+        </Menu.Item>
+        <Menu.Item
+          as={NavLink}
+          to="/"
+          name="home"
+          active={activeItem === "home"}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          as={NavLink}
+          to="/customers"
+          name="customer"
+          active={activeItem === "customer"}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          as={NavLink}
+          to="/products"
+          name="product"
+          active={activeItem === "product"}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          as={NavLink}
+          to="/stores"
+          name="store"
+          active={activeItem === "store"}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          as={NavLink}
+          to="/sales"
+          name="sale"
+          active={activeItem === "sale"}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Menu position="right">
+          <Menu.Item>
+            <Input icon="search" placeholder="Search..." />
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
     );
   }
 }
-
-export default NavBar;

@@ -4,7 +4,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <p>Home</p>
+        <h1>React Onboarding Task</h1>
+        <p>My first entry-level web app.</p>
       </div>
     );
   }

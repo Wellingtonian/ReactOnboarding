@@ -146,7 +146,7 @@ class CustomerHome extends Component {
             onEdit={this.handleEdit}
             onDelete={this.handleDelete}
           />
-          <div className="collapse navbar-collapse d-flex justify-content-between">
+          <div className="pagination">
             <PaginationUnit
               itemsCount={count}
               pageSize={pageSize}
@@ -154,7 +154,6 @@ class CustomerHome extends Component {
               onPageChange={this.handlePageChange}
             />
             <div>
-              <Label pointing="right">Items On Each Page</Label>
               <Selections onPageSizeChange={this.handlePageSizeChange} />
             </div>
           </div>

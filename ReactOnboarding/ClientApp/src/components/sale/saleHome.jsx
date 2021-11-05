@@ -157,17 +157,15 @@ class SaleHome extends Component {
             customer={customerList}
             product={productList}
           />
-          <div className="collapse navbar-collapse d-flex justify-content-between">
+          <div className="pagination">
             <PaginationUnit
               itemsCount={count}
               pageSize={pageSize}
               currentPage={currentPage}
               onPageChange={this.handlePageChange}
             />
-            <div>
-              <Label pointing="right">Items On Each Page</Label>
-              <Selections onPageSizeChange={this.handlePageSizeChange} />
-            </div>
+
+            <Selections onPageSizeChange={this.handlePageSizeChange} />
           </div>
         </div>
         <Divider horizontal>Copyright Wellingtonian@2021</Divider>

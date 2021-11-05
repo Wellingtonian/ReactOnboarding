@@ -5,3 +5,12 @@
 .clickable {
   cursor: pointer;
 }
+
+body {
+  padding: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+}
