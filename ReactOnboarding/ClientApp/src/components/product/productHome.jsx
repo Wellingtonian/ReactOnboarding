@@ -40,7 +40,6 @@ class ProductHome extends Component {
   };
 
   handleEdit = async (product) => {
-    console.log("Edit");
     await axios.put(`/products/putproduct/${product.id}`, product);
     const productList = [...this.state.productList];
     const index = productList.indexOf(product);
@@ -84,14 +83,13 @@ class ProductHome extends Component {
   };
 
   setOpen = (isModalOpen) => {
-    console.log("create");
     this.setState({ isModalOpen });
   };
 
   render() {
     const { length: count } = this.state.productList;
     const {
-      productList: allProduct,
+      //productList: allProduct,
       currentPage,
       pageSize,
       sortColumn,

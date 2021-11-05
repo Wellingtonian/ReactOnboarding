@@ -34,7 +34,7 @@ class SaleHome extends Component {
     const { data } = await axios.get("/sales/getsales").catch((err) => {
       console.log(err);
     });
-    console.log(data);
+
     this.setState({ saleList: data });
   };
 
@@ -42,7 +42,7 @@ class SaleHome extends Component {
     const { data } = await axios.get("/products/getproducts").catch((err) => {
       console.log(err);
     });
-    console.log(data);
+
     this.setState({ productList: data });
   };
 
@@ -67,7 +67,6 @@ class SaleHome extends Component {
   };
 
   handleEdit = async (sale) => {
-    console.log("Edit");
     await axios.put(`/sales/putsale/${sale.id}`, sale);
     const saleList = [...this.state.saleList];
     const index = saleList.indexOf(sale);
@@ -106,7 +105,7 @@ class SaleHome extends Component {
   render() {
     const { length: count } = this.state.saleList;
     const {
-      saleList: allsaleList,
+      //saleList: allsaleList,
       customerList,
       productList,
       storeList,

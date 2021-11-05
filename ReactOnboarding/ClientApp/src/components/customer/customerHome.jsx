@@ -41,7 +41,6 @@ class CustomerHome extends Component {
   };
 
   handleEdit = async (customer) => {
-    console.log("Edit");
     await axios.put(`/customers/putcustomer/${customer.id}`, customer);
     const customerList = [...this.state.customerList];
     const index = customerList.indexOf(customer);
@@ -89,14 +88,13 @@ class CustomerHome extends Component {
   };
 
   setOpen = (isModalOpen) => {
-    console.log("create");
     this.setState({ isModalOpen });
   };
 
   render() {
     const { length: count } = this.state.customerList;
     const {
-      customerList: allCustomer,
+      // customerList: allCustomer,
       currentPage,
       pageSize,
       sortColumn,

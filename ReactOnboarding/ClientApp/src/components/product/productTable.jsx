@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import TableGen from "../common/tableGen";
 import EditProduct from "./editproduct";
 import DeleteProduct from "./deleteProduct";

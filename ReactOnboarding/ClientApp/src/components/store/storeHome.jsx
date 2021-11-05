@@ -39,7 +39,6 @@ class StoreHome extends Component {
   };
 
   handleEdit = async (store) => {
-    console.log("Edit");
     await axios.put(`/stores/putStore/${store.id}`, store);
     const storeList = [...this.state.storeList];
     const index = storeList.indexOf(store);
@@ -83,11 +82,10 @@ class StoreHome extends Component {
   render() {
     const { length: count } = this.state.storeList;
     const {
-      storeList: allStore,
+      // storeList: allStore,
       currentPage,
       pageSize,
       sortColumn,
-      isModalOpen,
     } = this.state;
 
     if (count === 0)

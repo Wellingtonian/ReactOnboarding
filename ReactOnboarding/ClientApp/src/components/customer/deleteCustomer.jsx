@@ -11,11 +11,7 @@ function DeleteCustomer(props) {
       onOpen={() => setOpen(true)}
       open={open}
       trigger={
-        <Button
-          secondary
-          name="pencil alternate"
-          onClick={console.log(customer)}
-        >
+        <Button secondary name="pencil alternate">
           <Icon name="delete" />
           Delete Customer
         </Button>

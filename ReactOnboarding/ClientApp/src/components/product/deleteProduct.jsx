@@ -11,11 +11,7 @@ function DeleteProduct(props) {
       onOpen={() => setOpen(true)}
       open={open}
       trigger={
-        <Button
-          secondary
-          name="pencil alternate"
-          onClick={console.log(product)}
-        >
+        <Button secondary name="pencil alternate">
           <Icon name="delete" />
           Delete Product
         </Button>
