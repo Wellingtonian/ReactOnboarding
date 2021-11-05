@@ -8,10 +8,8 @@ const DropDownSale = ({ data, onSelect }) => (
     search
     selection
     options={data.map(function (item) {
-      if (data && data.length)
-        return { key: item.id, value: item.name, text: item.name };
+      return { key: item.id, value: item.id, text: item.name };
     })}
-    //options={[{ key: "1", value: "1", text: "10" }]}
     onChange={(e, data) => onSelect(data.value)}
   />
 );

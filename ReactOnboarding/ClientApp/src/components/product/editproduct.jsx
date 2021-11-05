@@ -52,7 +52,14 @@ function EditProduct(props) {
           labelPosition="right"
           icon="checkmark"
           onClick={() =>
-            onEdit({ id: product.id, name: name, price: price }, setOpen(false))
+            onEdit(
+              {
+                id: product.id,
+                name: name || product.name,
+                price: price || product.price,
+              },
+              setOpen(false)
+            )
           }
           positive
         />

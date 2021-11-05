@@ -73,6 +73,7 @@ class SaleHome extends Component {
     const index = saleList.indexOf(sale);
     saleList[index] = { ...sale };
     this.setState({ saleList });
+    this.fetchSaleList();
   };
 
   handleDelete = async (sale) => {
@@ -153,6 +154,9 @@ class SaleHome extends Component {
             onSort={this.handleSort}
             onEdit={this.handleEdit}
             onDelete={this.handleDelete}
+            store={storeList}
+            customer={customerList}
+            product={productList}
           />
           <div className="collapse navbar-collapse d-flex justify-content-between">
             <PaginationUnit

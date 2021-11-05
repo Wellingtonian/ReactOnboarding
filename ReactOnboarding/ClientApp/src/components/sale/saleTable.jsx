@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TableGen from "../common/tableGen";
 import DeleteSale from "./deleteSale";
-import EditSale from "./editsale";
+import EditSale from "./editSale";
 
 class SaleTable extends Component {
   constructor(props) {
@@ -20,7 +20,15 @@ class SaleTable extends Component {
     {
       key: "edit",
       label: "Activity-1",
-      content: (data) => <EditSale onEdit={this.props.onEdit} sale={data} />,
+      content: (data) => (
+        <EditSale
+          onEdit={this.props.onEdit}
+          sale={data}
+          store={this.props.store}
+          customer={this.props.customer}
+          product={this.props.product}
+        />
+      ),
     },
     {
       key: "delete",

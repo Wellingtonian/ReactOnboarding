@@ -53,7 +53,11 @@ function EditStore(props) {
           icon="checkmark"
           onClick={() =>
             onEdit(
-              { id: store.id, name: name, address: address },
+              {
+                id: store.id,
+                name: name || store.name,
+                address: address || store.address,
+              },
               setOpen(false)
             )
           }

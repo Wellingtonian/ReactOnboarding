@@ -4,7 +4,7 @@ import { Button, Modal, Form, Icon } from "semantic-ui-react";
 import DropDownSale from "./dropDownSale";
 
 function EditStore(props) {
-  const { onEdit, sale, customer, product, store } = props;
+  const { onEdit, sale, store, customer, product } = props;
   const [saleDate, setSaleDate] = useState("");
   const [customerID, setCustomerID] = useState("");
   const [productID, setProductID] = useState("");
@@ -69,10 +69,10 @@ function EditStore(props) {
             onEdit(
               {
                 id: sale.id,
-                dateSold: saleDate,
-                productID: productID,
-                customerID: customerID,
-                storeID: storeID,
+                dateSold: saleDate || sale.dateSold,
+                productID: productID || sale.product.id,
+                customerID: customerID || sale.customer.id,
+                storeID: storeID || sale.store.id,
               },
               setOpen(false)
             )

@@ -53,7 +53,11 @@ function EditCustomer(props) {
           icon="checkmark"
           onClick={() =>
             onEdit(
-              { id: customer.id, name: name, address: address },
+              {
+                id: customer.id,
+                name: name || customer.name,
+                address: address || customer.address,
+              },
               setOpen(false)
             )
           }
