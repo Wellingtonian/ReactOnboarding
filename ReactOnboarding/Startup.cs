@@ -22,7 +22,7 @@ namespace ReactOnboarding
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ShoppingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ShoppingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShoppingContext")));
             
             services.AddControllersWithViews();
             services.AddControllers().AddNewtonsoftJson(x =>

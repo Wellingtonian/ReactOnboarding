@@ -92,10 +92,7 @@ class StoreHome extends Component {
       return (
         <div>
           <h1>Store</h1>
-          <Button color="violet" onClick={() => this.setOpen(true)}>
-            <Icon name="file" />
-            Create Store
-          </Button>
+
           <CreateStore onCreate={this.handleCreate} />
           <Divider horizontal>No Store</Divider>
           <p>Creat your first Store!</p>
