@@ -74,11 +74,7 @@ function CreateSale(props) {
                 customerID: customerID,
                 storeID: storeID,
               },
-              setOpen(false),
-              console.log(saleDate),
-              console.log(productID),
-              console.log(customerID),
-              console.log(storeID)
+              setOpen(false)
             )
           }
           positive

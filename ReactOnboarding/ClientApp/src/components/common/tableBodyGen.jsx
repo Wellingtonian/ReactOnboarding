@@ -5,6 +5,8 @@ import _ from "lodash";
 class TableBodyGen extends Component {
   renderCell = (item, column) => {
     if (column.content) return column.content(item);
+    if (column.path === "dateSold")
+      return _.get(item, column.path).slice(0, 10);
     return _.get(item, column.path);
   };
 

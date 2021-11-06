@@ -38,8 +38,10 @@ class SaleTable extends Component {
       ),
     },
   ];
+
   render() {
     const { saleList, onSort, sortColumn } = this.props;
+
     return (
       <TableGen
         columns={this.columns}

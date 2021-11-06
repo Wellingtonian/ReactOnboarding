@@ -18,9 +18,7 @@ function DeleteSale(props) {
       }
     >
       <Modal.Header>Delete Sale</Modal.Header>
-      <Modal.Content>
-        Are you sure to delete {sale.product.name} sold at {sale.dateSold} ?
-      </Modal.Content>
+      <Modal.Content>Are you sure to delete this sale ?</Modal.Content>
       <Modal.Actions>
         <Button
           content="Cancel"

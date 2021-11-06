@@ -20,6 +20,7 @@ class SaleHome extends Component {
       currentPage: 1,
       pageSize: 5,
       sortColumn: { path: "title", order: "asc" },
+      dataIsReturn: false,
     };
   }
   // Didmount and initial state
@@ -28,6 +29,7 @@ class SaleHome extends Component {
     this.fetchStoreList();
     this.fetchProductList();
     this.fetchCustomerList();
+    this.setState({ dataIsReturn: true });
   }
 
   fetchSaleList = async () => {
@@ -61,10 +63,13 @@ class SaleHome extends Component {
   };
 
   handleCreate = async (sale) => {
+    this.setState({ dataIsReturn: false });
     const { data } = await axios.post("/sales/postsale", sale);
+
     const saleList = [data, ...this.state.saleList];
     this.setState({ saleList });
     this.fetchSaleList();
+    this.setState({ dataIsReturn: true });
   };
 
   handleEdit = async (sale) => {
@@ -114,6 +119,7 @@ class SaleHome extends Component {
       currentPage,
       pageSize,
       sortColumn,
+      dataIsReturn,
     } = this.state;
 
     if (count === 0)
@@ -134,46 +140,48 @@ class SaleHome extends Component {
 
     const { saleList } = this.getPageData();
 
-    return (
-      <div>
-        <h1>Sale</h1>
-
-        <CreateSale
-          onCreate={this.handleCreate}
-          store={storeList}
-          customer={customerList}
-          product={productList}
-        />
-        <Divider horizontal>
-          Total {count === 1 ? count + "Sale" : count + " Sales"}
-        </Divider>
-
+    if (dataIsReturn)
+      return (
         <div>
-          {" "}
-          <SaleTable
-            saleList={saleList}
-            sortColumn={sortColumn}
-            onSort={this.handleSort}
-            onEdit={this.handleEdit}
-            onDelete={this.handleDelete}
+          <h1>Sale</h1>
+
+          <CreateSale
+            onCreate={this.handleCreate}
             store={storeList}
             customer={customerList}
             product={productList}
           />
-          <div className="pagination">
-            <PaginationUnit
-              itemsCount={count}
-              pageSize={pageSize}
-              currentPage={currentPage}
-              onPageChange={this.handlePageChange}
-            />
+          <Divider horizontal>
+            Total {count === 1 ? count + "Sale" : count + " Sales"}
+          </Divider>
 
-            <Selections onPageSizeChange={this.handlePageSizeChange} />
+          <div>
+            {" "}
+            <SaleTable
+              saleList={saleList}
+              sortColumn={sortColumn}
+              onSort={this.handleSort}
+              onEdit={this.handleEdit}
+              onDelete={this.handleDelete}
+              store={storeList}
+              customer={customerList}
+              product={productList}
+            />
+            <div className="pagination">
+              <PaginationUnit
+                itemsCount={count}
+                pageSize={pageSize}
+                currentPage={currentPage}
+                onPageChange={this.handlePageChange}
+              />
+
+              <Selections onPageSizeChange={this.handlePageSizeChange} />
+            </div>
           </div>
+          <Divider horizontal>Copyright Wellingtonian@2021</Divider>
         </div>
-        <Divider horizontal>Copyright Wellingtonian@2021</Divider>
-      </div>
-    );
+      );
+    else return <p>Loading...</p>;
   }
 }
 export default SaleHome;

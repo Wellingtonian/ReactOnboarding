@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Label, Button, Icon } from "semantic-ui-react";
+import { Label, Button, Icon, Dimmer, Loader } from "semantic-ui-react";
 import PaginationUnit from "../common/paginationUnit";
 import { paginate } from "../../utilities/paginate";
 import { Divider } from "semantic-ui-react";
@@ -145,7 +145,11 @@ class CustomerHome extends Component {
             onSort={this.handleSort}
             onEdit={this.handleEdit}
             onDelete={this.handleDelete}
-          />
+          >
+            <Dimmer active>
+              <Loader indeterminate>Preparing Files</Loader>
+            </Dimmer>
+          </CustomerTable>
           <div className="pagination">
             <PaginationUnit
               itemsCount={count}
